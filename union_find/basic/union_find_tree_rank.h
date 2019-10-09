@@ -22,11 +22,12 @@ class UnionFindTree2 : public UnionFind {
   virtual ~UnionFindTree2() { delete[] arrays; }
   virtual int Find(int p) {
     while (p != arrays[p]) {
+      arrays[p]=arrays[arrays[p]]; // pass compression
       p = arrays[p];
     }
     return p;
   }
-  virtual void Union(int p, int q) {  // quick union
+  virtual void Union(int p, int q) {  // quick union with rank
     int p_idx = Find(p);
     int q_idx = Find(q);
     if (p_idx == q_idx) {
