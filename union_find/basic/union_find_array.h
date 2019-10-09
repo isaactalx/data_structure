@@ -9,14 +9,13 @@ class UnionFindArray : public UnionFind {
     if (n <= 0) {
       std::cout << "input error!" << std::endl;
     }
-    std::cout<<"=="<<n<<std::endl;
     count = n;
     arrays = new int[count];
     for (int i = 0; i < count; ++i) {  //初始化
       arrays[i] = i;
     }
   }
-  ~UnionFindArray() { delete[] arrays; }
+  virtual ~UnionFindArray() { delete[] arrays; }
   virtual int Find(int p) { return arrays[p]; } //quick find
   virtual void Union(int p, int q) {
     int p_idx = arrays[p];
