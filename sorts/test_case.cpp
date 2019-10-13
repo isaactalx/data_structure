@@ -4,6 +4,7 @@
 #include <string>
 #include "insert_sort.h"
 #include "selection_sort.h"
+#include "merge_sort.h"
 using namespace std;
 
 void DataGenerator(int arr[], int n) {
@@ -18,6 +19,7 @@ void DataPrint(int arr[], int n) {
   for (int i = 0; i < n; i++) {
     cout << arr[i] << " ";
   }
+  cout<<endl;
 }
 
 template <typename T>
@@ -48,13 +50,15 @@ bool IsSorted(T arr, int n) {
 }
 
 int main() {
-  int n = 100000;
+  int n = 10000;
   int* nums1 = new int[n];
   int* nums2 = new int[n];
   DataGenerator(nums1, n);
   CopyData(nums1, nums2, n);
-  DoSort("SelectonSort", DS::SelectionSort, nums1, n);
+ // DoSort("SelectonSort", DS::SelectionSort, nums1, n);
+  DoSort("MergeSort", DS::MergeSort, nums1, n);
   DoSort("InsertSort", DS::InsertSort, nums2, n);
+  
   // if (IsSorted(nums, n)) {
   //   cout << "sorted successfully!" << endl;
   // } else {
