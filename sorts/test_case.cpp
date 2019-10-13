@@ -50,14 +50,14 @@ bool IsSorted(T arr, int n) {
 }
 
 int main() {
-  int n = 10000;
+  int n = 1000000;
   int* nums1 = new int[n];
   int* nums2 = new int[n];
   DataGenerator(nums1, n);
   CopyData(nums1, nums2, n);
  // DoSort("SelectonSort", DS::SelectionSort, nums1, n);
   DoSort("MergeSort", DS::MergeSort, nums1, n);
-  DoSort("InsertSort", DS::InsertSort, nums2, n);
+  DoSort("MergeSortIterative", DS::MergeSortIterative, nums2, n);
   
   // if (IsSorted(nums, n)) {
   //   cout << "sorted successfully!" << endl;
