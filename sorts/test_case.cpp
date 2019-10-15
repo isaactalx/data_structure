@@ -5,6 +5,7 @@
 #include "insert_sort.h"
 #include "selection_sort.h"
 #include "merge_sort.h"
+#include "quick_sort.h"
 using namespace std;
 
 void DataGenerator(int arr[], int n) {
@@ -56,7 +57,7 @@ int main() {
   DataGenerator(nums1, n);
   CopyData(nums1, nums2, n);
  // DoSort("SelectonSort", DS::SelectionSort, nums1, n);
-  DoSort("MergeSort", DS::MergeSort, nums1, n);
+  DoSort("QuickSort", DS::QuickSort, nums1, n);
   DoSort("MergeSortIterative", DS::MergeSortIterative, nums2, n);
   
   // if (IsSorted(nums, n)) {
