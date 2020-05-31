@@ -1,12 +1,24 @@
-#include "binary_search.h"
+#include "binary_search_tree.h"
 #include <assert.h>
+#include<string>
+#include "file_reader.h"
+#include <iostream>
+using namespace std;
+using DS::BST;
 
 int main(){
-    int nums[]={1,3,4,5,6,7,11,35,67};
-    int idx=DS::binary_search_recursion(nums,0,8,1);
-    assert(idx==0);
-    int idx1=DS::binary_search_recursion(nums,0,8,45);
-    assert(idx1==-1);
+    vector<string> words;
+    FileOps::readFile("test_file.txt",words);
+    BST<string,int> bst;
+    for(const auto& word:words){
+        int *value=bst.search(word);
+        if(value!=nullptr){
+            (*value)++;
+        }else{
+            bst.insert(word,1);
+        }
+    }
 
+    cout<<words.size()<<","<<bst.size()<<endl;
 
 }
